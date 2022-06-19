@@ -1,0 +1,5 @@
+<resources>
+    <style name="ShapeAppearanceOverlay.Circle" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

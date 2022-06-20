@@ -31,8 +31,8 @@ dependencies {
 
 <img src="https://marvel-b1-cdn.bc0a.com/f00000000156946/www.jrebel.com/sites/rebel/files/image/2021-01/what%20is%20kotlin%20banner%20image.png" height="70px" width="100px"> 
 
-## Demo
-<img src="https://user-images.githubusercontent.com/20203694/137814254-97e4aec8-02cb-4c00-8624-ddc24a80f966.gif" alt="demo"  width="300" height="300"/><img src="https://user-images.githubusercontent.com/20203694/137814196-01499fa0-9f27-4797-bafe-6530d2e3f743.gif" alt="demo"  width="300" height="300"/>
+<!-- ## Demo
+<img src="https://user-images.githubusercontent.com/20203694/137814254-97e4aec8-02cb-4c00-8624-ddc24a80f966.gif" alt="demo"  width="300" height="300"/><img src="https://user-images.githubusercontent.com/20203694/137814196-01499fa0-9f27-4797-bafe-6530d2e3f743.gif" alt="demo"  width="300" height="300"/> -->
     
 ## Usage
 Sample implementation [here](app/)

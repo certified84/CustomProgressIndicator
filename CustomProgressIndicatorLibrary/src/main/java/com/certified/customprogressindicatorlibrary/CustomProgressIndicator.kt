@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -12,7 +13,6 @@ import android.widget.TextView
 import androidx.annotation.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.isVisible
 import com.certified.customprogressindicatorlibrary.databinding.CustomProgressIndicatorBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +34,7 @@ class CustomProgressIndicator @JvmOverloads constructor(
     private var coroutineScope: CoroutineScope? = CoroutineScope(Dispatchers.Main)
     private var progressIndicatorColor: Int = Color.parseColor("#000000")
     private var textColor: Int = Color.parseColor("#FFFFFF")
-//    var textSize: Float = 20f
+    private var animate = true
 
     fun setVisibility(visible: Boolean) {
         visibility = if (visible) View.VISIBLE else View.GONE
@@ -121,22 +121,27 @@ class CustomProgressIndicator @JvmOverloads constructor(
     }
 
     fun startAnimation() {
+        animate = true
+        coroutineScope = CoroutineScope(Dispatchers.Main)
         binding.apply {
             val animZoomIn = AnimationUtils.loadAnimation(context, R.anim.zoom_in)
             val animZoomOut = AnimationUtils.loadAnimation(context, R.anim.zoom_out)
             coroutineScope?.launch {
-                while (isVisible && binding.ivLogo.isVisible) {
+                while (animate) {
                     delay(800L)
                     ivLogo.startAnimation(animZoomOut)
                     delay(800L)
                     ivLogo.startAnimation(animZoomIn)
+                    Log.d("TAG", "startAnimation: Animating")
                 }
             }
         }
     }
 
     fun stopAnimation() {
+        animate = false
         coroutineScope = null
         binding.ivLogo.clearAnimation()
+        Log.d("TAG", "stopAnimation: Stopped animating")
     }
 }

@@ -1,8 +1,10 @@
 package com.certified.customcomponents
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isVisible
 import com.certified.customcomponents.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,9 +16,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.apply {
+            binding.btnShowIndicator.setOnClickListener {
+                if (!indicator.isVisible) {
+                    indicator.visibility = View.VISIBLE
+                    indicator.startAnimation()
+                }
+                else {
+                    indicator.visibility = View.GONE
+                    indicator.stopAnimation()
+                }
+            }
+        }
     }
 
-//    @SuppressLint("ResourceType")
+    //    @SuppressLint("ResourceType")
     override fun onResume() {
         super.onResume()
         binding.indicator.apply {
@@ -27,7 +42,6 @@ class MainActivity : AppCompatActivity() {
 //            setText("Unruly...")
             setImageResource(R.drawable.avatar)
             setTrackColor("#B32821")
-            startAnimation()
         }
     }
 

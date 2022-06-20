@@ -133,15 +133,13 @@ Sample implementation [here](app/)
        //...omitted for brevity
     }
 ```
-
-
-## Contibuting
-
+ 
+## Contribute 🤝
 - Please create an issue if you find something wrong
-- Feel free to contibute. Read the guide [here](CONTIBUTION)
+- Feel free to contibute. See [Contributing Guidelines](CONTRIBUTION.md).
 
 
-### Licensed under the [Apache-2.0 License](LICENSE)
+### Licensed under the [Apache-2.0 License](LICENCE)
 
 ```
 

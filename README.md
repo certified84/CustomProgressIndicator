@@ -4,7 +4,7 @@
  A custom progress indicator view to give your android application a nice feel.
 
 ## Demo
-<img src="https://github.com/certified84/CustomProgressIndicator/blob/master/demo/custom_progress_indicator.gif" alt="demo"/>
+<img src="https://github.com/certified84/CustomProgressIndicator/blob/master/demo/custom_progress_indicator1.gif" alt="demo"/>   <img src="https://github.com/certified84/CustomProgressIndicator/blob/master/demo/custom_progress_indicator.gif" alt="demo"/>
 
 
 ## Setup

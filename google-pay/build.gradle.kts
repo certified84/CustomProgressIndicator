@@ -5,15 +5,53 @@ plugins {
     id("kotlin-kapt")
 }
 
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.certified84"
+            artifactId = "google-pay"
+            version = "0.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "google-pay-repo"
+            url = uri("${project.buildDir}/google-pay-repo")
+        }
+    }
+}
+
+tasks.register<Zip>("generateRepo") {
+    val publishTask = tasks.named(
+        "publishReleasePublicationToGooglePayRepository",
+        PublishToMavenRepository::class.java)
+    from(publishTask.map { it.repository.url })
+    into("google-pay")
+    archiveFileName.set("google-pay.zip")
+}
+
 android {
     namespace = "com.certified.google_pay"
     compileSdk = 34
 
     defaultConfig {
+        aarMetadata {
+            minCompileSdk = 29
+        }
         minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
     }
 
     buildTypes {

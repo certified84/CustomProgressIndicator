@@ -22,6 +22,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.certified.customcomponents.databinding.ActivityMainBinding
+import com.certified.google_pay.Constants.GOOGLE_PAY_REQUEST_CODE
 import com.google.android.gms.wallet.AutoResolveHelper
 import com.google.android.gms.wallet.PaymentData
 import org.json.JSONException
@@ -37,18 +38,18 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding.btnGooglePay.initialize(this@MainActivity)
+        binding.btnGooglePay.initialize(this@MainActivity)
     }
 
     //    @SuppressLint("ResourceType")
     override fun onResume() {
         super.onResume()
-//        binding.btnGooglePay.apply {
-////            setTextSize(resources.getDimension(com.intuit.sdp.R.dimen._30sdp))
-//            setTypeface(R.font.space_grotesk_light)
-//            price = 200
-//            shippingCost = 50
-//        }
+        binding.btnGooglePay.apply {
+//            setTextSize(resources.getDimension(com.intuit.sdp.R.dimen._30sdp))
+            setTypeface(R.font.space_grotesk_light)
+            price = 200
+            shippingCost = 50
+        }
     }
 
     override fun onPause() {
@@ -67,27 +68,27 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             // Value passed in AutoResolveHelper
-//            GOOGLE_PAY_REQUEST_CODE -> {
-//                when (resultCode) {
-//                    RESULT_OK ->
-//                        data?.let { intent ->
-//                            PaymentData.getFromIntent(intent)?.let(::handlePaymentSuccess)
-//                        }
-//
-//                    RESULT_CANCELED -> {
-//                        // The user cancelled the payment attempt
-//                    }
-//
-//                    AutoResolveHelper.RESULT_ERROR -> {
-//                        AutoResolveHelper.getStatusFromIntent(data)?.let {
-//                            handleError(it.statusCode)
-//                        }
-//                    }
-//                }
-//
-////                // Re-enables the Google Pay payment button.
-//                binding.btnGooglePay.isClickable = true
-//            }
+            GOOGLE_PAY_REQUEST_CODE -> {
+                when (resultCode) {
+                    RESULT_OK ->
+                        data?.let { intent ->
+                            PaymentData.getFromIntent(intent)?.let(::handlePaymentSuccess)
+                        }
+
+                    RESULT_CANCELED -> {
+                        // The user cancelled the payment attempt
+                    }
+
+                    AutoResolveHelper.RESULT_ERROR -> {
+                        AutoResolveHelper.getStatusFromIntent(data)?.let {
+                            handleError(it.statusCode)
+                        }
+                    }
+                }
+
+//                // Re-enables the Google Pay payment button.
+                binding.btnGooglePay.isClickable = true
+            }
         }
     }
 

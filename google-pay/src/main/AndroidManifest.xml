@@ -16,5 +16,10 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <application>
+        <!-- This element is required to enable Google Pay in your app. -->
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+    </application>
 </manifest>

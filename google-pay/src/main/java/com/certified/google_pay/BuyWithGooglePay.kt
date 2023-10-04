@@ -159,7 +159,6 @@ class BuyWithGooglePay @JvmOverloads constructor(
             Toast.makeText(context, "You must call initialize() first", Toast.LENGTH_SHORT).show()
             return
         }
-        binding.btnGooglePay.isClickable = false
         _paymentsClient = PaymentsUtil.createPaymentsClient(_activity!!)
         val task = getLoadPaymentDataTask(price + shippingCost)
         task?.let { AutoResolveHelper.resolveTask(it, _activity!!, GOOGLE_PAY_REQUEST_CODE) }

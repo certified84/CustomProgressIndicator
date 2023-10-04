@@ -59,7 +59,6 @@ object Constants {
     val SUPPORTED_NETWORKS = listOf(
         "MASTERCARD",
         "VISA",
-        "VERVE"
     )
 
     /**
@@ -95,7 +94,7 @@ object Constants {
      *
      * @value #SHIPPING_SUPPORTED_COUNTRIES
      */
-    val SHIPPING_SUPPORTED_COUNTRIES = listOf("US", "GB", "NG","GH")
+    val SHIPPING_SUPPORTED_COUNTRIES = listOf("US", "GB", "NG","GH", "ZA")
 
     /**
      * The name of your payment processor/gateway. Please refer to their documentation for more

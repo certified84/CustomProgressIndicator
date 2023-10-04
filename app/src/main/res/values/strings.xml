@@ -15,5 +15,9 @@
   -->
 
 <resources>
-    <string name="app_name">CustomComponents</string>
+    <string name="app_name" translatable="false">CustomComponents</string>
+    <string name="buy_with" translatable="false">Buy with</string>
+    <string name="payments_show_name" translatable="false">Successfully received payment data for
+        %s!
+    </string>
 </resources>
